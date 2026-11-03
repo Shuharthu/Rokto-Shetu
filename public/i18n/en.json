@@ -2,38 +2,155 @@
   "nav": {
     "findDonors": "Find Donors",
     "requestBlood": "Request Blood",
+    "fundraisers": "Fundraisers",
+    "achievements": "Achievements",
+    "verify": "Verify",
+    "pricing": "Pricing",
+    "more": "More",
+    "b2bHospital": "B2B Hospital",
     "bloodBanks": "Blood Banks",
     "camps": "Camps",
     "leaderboard": "Leaderboard",
-    "fundraisers": "Fundraisers",
+    "compatibility": "Blood Matrix",
+    "eligibility": "Eligibility Quiz",
+    "faq": "FAQ",
+    "admin": "Admin Console",
     "login": "Log in",
-    "register": "Register",
+    "register": "Register as Donor",
     "logout": "Log out"
   },
   "hero": {
-    "badge": "Verified donors, near you",
-    "titlePrefix": "Every drop, a bridge to ",
-    "titleHighlight": "life.",
-    "subtitle": "RoktoSetu connects patients with verified blood donors nearby, on a live map, in minutes.",
-    "btnFindDonor": "Find a donor",
-    "btnBecomeDonor": "Become a donor",
-    "btnEmergencySos": "Emergency SOS"
+    "badge": "[LIVE DONOR_NETWORK]",
+    "titlePrefix": "Every drop of blood is a ",
+    "titleHighlight": "bridge to life.",
+    "subtitle": "Bangladesh's decentralized, high-reliability blood network & verified medical treatment crowdfunding platform. Zero cost, zero middlemen, 100% voluntary.",
+    "btnFindDonor": "Find Donors Near You",
+    "btnBecomeDonor": "Become a Donor",
+    "btnEmergencySos": "Emergency SOS",
+    "statusNational": "NAT_NETWORK: 64 DISTRICTS",
+    "statusPrivacy": "PRIVACY: 500M GEO_FUZZ",
+    "pauseVideo": "Pause background video",
+    "pauseVideoText": "Pause Video",
+    "playVideoText": "Play Video"
   },
   "searchCard": {
-    "title": "Search donors",
-    "bloodGroupLabel": "Blood group",
-    "locationLabel": "Location",
-    "locationPlaceholder": "e.g. Chattogram, 10 km radius",
-    "btnSearch": "Show donors on map"
+    "title": "Instant Donor Radar",
+    "bloodGroupLabel": "Select Blood Group",
+    "locationLabel": "District / Area",
+    "locationPlaceholder": "Search District or Hospital...",
+    "btnSearch": "Search Available Donors"
+  },
+  "impact": {
+    "title": "Real-Time Verified Impact",
+    "donorsCount": "14,820+",
+    "donorsLabel": "Verified Active Donors",
+    "requestsCount": "6,240+",
+    "requestsLabel": "Fulfilled Requests",
+    "districtsCount": "64",
+    "districtsLabel": "Districts Covered",
+    "voluntaryCount": "100%",
+    "voluntaryLabel": "Voluntary & Free"
   },
   "howItWorks": {
-    "heading": "How it works",
-    "step1Title": "Register and verify",
-    "step1Desc": "Add your NID or passport. Admins review it privately.",
-    "step2Title": "Match on the map",
-    "step2Desc": "Donors who are free right now appear near the patient.",
-    "step3Title": "Donate and level up",
-    "step3Desc": "Earn Bronze to Legend badges and rewards."
+    "heading": "How RoktoSetu Works",
+    "subheading": "A decentralized, high-speed protocol connecting seekers to voluntary donors in minutes.",
+    "step1Title": "1. Broadcast Request",
+    "step1Desc": "Seeker submits emergency blood request with hospital verification. Matching begins instantly.",
+    "step2Title": "2. Expanding Ring Match",
+    "step2Desc": "Smart geohash rings (5km → 10km → 25km) notify verified, eligible donors without exposing contact numbers.",
+    "step3Title": "3. Voluntary Life Bridge",
+    "step3Desc": "Donor accepts, hospital confirms transfusion, and official Certified Blood Donor milestones are awarded."
+  },
+  "mapTeaser": {
+    "heading": "Live Nationwide Donor Radar",
+    "subheading": "Explore real-time donor availability across Bangladesh. Donor locations are protected with ~500m coordinate fuzzing.",
+    "btnOpenMap": "Open Interactive Donor Map",
+    "liveBadge": "LIVE RADAR"
+  },
+  "levels": {
+    "heading": "Honor & Donor Milestones",
+    "subheading": "Every verified voluntary donation moves you closer to the next honor badge and verified certificate.",
+    "bronze": "Bronze Donor (3 Donations)",
+    "silver": "Silver Hero (6 Donations)",
+    "gold": "Gold Guardian (10 Donations)",
+    "platinum": "Platinum Champion (15 Donations)",
+    "diamond": "Diamond Savior (25 Donations)",
+    "legend": "RoktoSetu Legend (50+ Donations)",
+    "progressExample": "Example: 3 more donations to reach Gold Guardian tier."
+  },
+  "idCard": {
+    "heading": "Digital Donor ID & Official Certification",
+    "subheading": "Tamper-proof credentials issued automatically after the 3rd verified donation. QR verification with zero PII leaks.",
+    "sampleNotice": "SAMPLE DONOR MEMBERSHIP",
+    "cardNotice": "Issued only to verified donors. Scannable at blood donation camps & partner facilities.",
+    "certTitle": "Certified Blood Donor Certificate",
+    "btnViewCert": "Verify Certificate Demo"
+  },
+  "fundraiserSpotlight": {
+    "heading": "Verified Medical Fundraisers",
+    "subheading": "100% transparent crowdfunding for critical patients. Strict 4-eyes clinical verification and double-entry escrow.",
+    "verifiedBadge": "Verified by RoktoSetu",
+    "btnBrowseFundraisers": "View All Active Fundraisers",
+    "btnDonate": "Support Campaign"
+  },
+  "hospitalB2B": {
+    "heading": "Enterprise Hospital & Blood Bank Workspace",
+    "subheading": "Next-generation digital infrastructure for clinical facilities, transfusion medicine teams, and NGO blood drives.",
+    "fefoTitle": "FEFO Inventory Management",
+    "fefoDesc": "Real-time unit tracking with First-Expired, First-Out lifecycle governance.",
+    "campsTitle": "Digital Blood Camps",
+    "campsDesc": "Rapid donor check-in, automated SMS queueing, and on-site verified badge issuance.",
+    "apiTitle": "SaaS REST API & Webhooks",
+    "apiDesc": "High-speed integration into existing Hospital Information Systems (HIS).",
+    "whiteLabelTitle": "White-Label Transfusion Portals",
+    "whiteLabelDesc": "Custom branded seeker request portals for partner healthcare institutions.",
+    "btnPricing": "Explore Hospital Plans & Pricing"
+  },
+  "trust": {
+    "heading": "Integrity & Privacy by Design",
+    "subheading": "Built from the ground up to protect patients and eliminate commercial blood trafficking.",
+    "pillar1Title": "Strictly Non-Commercial",
+    "pillar1Desc": "Blood is a voluntary gift of life. Automated word-boundary filters detect and ban all selling attempts.",
+    "pillar2Title": "PII Cryptography",
+    "pillar2Desc": "Donor NID and medical records are encrypted with AES-256-GCM and stored behind signed URLs.",
+    "pillar3Title": "BMDC Clinical Verification",
+    "pillar3Desc": "Fundraisers require registered doctor credentials checked against Bangladesh Medical & Dental Council."
+  },
+  "stories": {
+    "heading": "Knowledge & Health Awareness",
+    "subheading": "Medically reviewed insights on transfusion science, donor health, and community life-saving.",
+    "story1Title": "Why the 90-Day Donation Gap Matters",
+    "story1Desc": "Understanding red blood cell regeneration and maintaining optimal iron stores between donations.",
+    "story2Title": "Thalassemia: Bridging the Ongoing Need",
+    "story2Desc": "How regular voluntary donors keep children living with thalassemia thriving across Bangladesh.",
+    "story3Title": "Apheresis vs Whole Blood Donation",
+    "story3Desc": "The science of single-donor platelets and how one procedure can save multiple emergency patients."
+  },
+  "faq": {
+    "heading": "Frequently Asked Questions",
+    "subheading": "Everything you need to know about donating or seeking blood voluntarily on RoktoSetu.",
+    "q1": "Is RoktoSetu completely free to use?",
+    "a1": "Yes, 100% free for individual seekers and donors. No hidden fees or commercial donor payments are ever permitted.",
+    "q2": "How is my private contact number protected?",
+    "a2": "Your phone number is completely hidden. It is only revealed when you explicitly click 'Accept' on an emergency request.",
+    "q3": "Who is eligible to donate blood in Bangladesh?",
+    "a3": "Healthy individuals aged 18 to 60, weighing at least 45 kg (females) or 50 kg (males), with a minimum 90-day gap since their last donation.",
+    "q4": "How are medical fundraisers verified?",
+    "a4": "Every campaign undergoes strict 4-eyes review: hospital admission proof, BMDC doctor verification, and double-entry ledger escrow."
+  },
+  "ctaBand": {
+    "heading": "Need Blood Urgently Right Now?",
+    "subheading": "Don't wait. Broadcast an emergency request to nearby verified donors on the live map in under 60 seconds.",
+    "btnBroadcastNow": "Broadcast Emergency Request"
+  },
+  "footer": {
+    "mission": "A decentralized blood-donation network and medical treatment fundraiser. Every drop, a bridge to life.",
+    "quickLinks": "Seekers & Emergencies",
+    "donorLinks": "Donors & Achievements",
+    "b2bLinks": "Hospital & Developers",
+    "legalLinks": "Trust & Governance",
+    "disclaimer": "Medical Disclaimer: RoktoSetu is a technology platform connecting voluntary donors, seekers, and medical centers. RoktoSetu does not provide medical services, diagnosis, or transfusion facilities. All blood compatibility testing and transfusions must be conducted by certified clinical personnel.",
+    "copyright": "© 2026 RoktoSetu Foundation. All rights reserved."
   },
   "wizard": {
     "title": "Donor & User Registration",

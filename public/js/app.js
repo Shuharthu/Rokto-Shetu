@@ -45,6 +45,7 @@ import { VerifyCertView } from './modules/public/verify-cert-view.js';
 import { VerifyCardView } from './modules/public/verify-card-view.js';
 import { AchievementsView } from './modules/donor/achievements-view.js';
 import { ShareCardView } from './modules/public/share-card-view.js';
+import { HomeView } from './modules/home/home-view.js';
 
 class RoktoSetuApp {
   constructor() {
@@ -56,6 +57,7 @@ class RoktoSetuApp {
     this.requestBlood = null;
     this.availability = null;
     this.chat = null;
+    this.homeView = null;
   }
 
   async init() {
@@ -154,6 +156,64 @@ class RoktoSetuApp {
         window.location.hash = '#/map';
       });
     });
+
+    // Scroll-driven Navbar Shrink & Crimson Border Glow + Progress Bar
+    const navbar = document.getElementById('siteNavbar');
+    const progressBar = document.getElementById('scrollProgressBar');
+    window.addEventListener('scroll', () => {
+      const scrolled = window.scrollY || document.documentElement.scrollTop;
+      if (navbar) {
+        if (scrolled > 40) {
+          navbar.classList.add('navbar-scrolled');
+        } else {
+          navbar.classList.remove('navbar-scrolled');
+        }
+      }
+      if (progressBar) {
+        const totalHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const progress = totalHeight > 0 ? (scrolled / totalHeight) * 100 : 0;
+        progressBar.style.width = `${Math.min(100, Math.max(0, progress))}%`;
+      }
+    }, { passive: true });
+
+    // Desktop "More" Dropdown Trigger & Esc/Click-Outside Handler
+    const dropdownBtn = document.getElementById('navMoreDropdownBtn');
+    const dropdownMenu = document.getElementById('navMoreDropdownMenu');
+    if (dropdownBtn && dropdownMenu) {
+      dropdownBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = dropdownMenu.classList.contains('open');
+        if (isOpen) {
+          dropdownMenu.classList.remove('open');
+          dropdownBtn.setAttribute('aria-expanded', 'false');
+        } else {
+          dropdownMenu.classList.add('open');
+          dropdownBtn.setAttribute('aria-expanded', 'true');
+        }
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!dropdownBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
+          dropdownMenu.classList.remove('open');
+          dropdownBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && dropdownMenu.classList.contains('open')) {
+          dropdownMenu.classList.remove('open');
+          dropdownBtn.setAttribute('aria-expanded', 'false');
+          dropdownBtn.focus();
+        }
+      });
+
+      dropdownMenu.querySelectorAll('.nav-dropdown-item').forEach(item => {
+        item.addEventListener('click', () => {
+          dropdownMenu.classList.remove('open');
+          dropdownBtn.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
   }
 
   renderUserNav(state) {
@@ -174,106 +234,13 @@ class RoktoSetuApp {
   setupRoutes() {
     const appRoot = document.getElementById('appRoot');
 
-    // 1. HOME VIEW (Matches uploaded hero screenshot)
+    // 1. HOME VIEW (12-Section Futuristic Bio-Tech Experience with Video Hero)
     this.router.addRoute('#/', () => {
-      appRoot.innerHTML = `
-        <main>
-          <!-- Hero Section -->
-          <section class="hero-section">
-            <div class="container">
-              <div class="hero-grid">
-                <!-- Left Column -->
-                <div>
-                  <div class="hero-tag">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                    <span data-i18n="hero.badge">${t('hero.badge')}</span>
-                  </div>
-
-                  <h1 class="hero-title">
-                    <span data-i18n="hero.titlePrefix">${t('hero.titlePrefix')}</span><span class="highlight" data-i18n="hero.titleHighlight">${t('hero.titleHighlight')}</span>
-                  </h1>
-
-                  <p class="hero-subtitle" data-i18n="hero.subtitle">
-                    ${t('hero.subtitle')}
-                  </p>
-
-                  <div class="hero-ctas">
-                    <a href="#/map" class="btn btn-primary btn-lg" data-i18n="hero.btnFindDonor">${t('hero.btnFindDonor')}</a>
-                    <a href="#/register" class="btn btn-outline btn-lg" data-i18n="hero.btnBecomeDonor">${t('hero.btnBecomeDonor')}</a>
-                    <button type="button" class="btn btn-sos btn-lg btn-emergency-sos-action" data-i18n="hero.btnEmergencySos">${t('hero.btnEmergencySos')}</button>
-                  </div>
-                </div>
-
-                <!-- Right Column: Quick Search Card (Matching uploaded screenshot) -->
-                <div>
-                  <div class="card" style="border: 1.5px solid rgba(217, 4, 41, 0.25);">
-                    <h2 style="font-size: var(--font-size-lg); font-weight: 700; margin-bottom: var(--space-4);" data-i18n="searchCard.title">
-                      ${t('searchCard.title')}
-                    </h2>
-
-                    <div class="form-group">
-                      <label class="form-label" data-i18n="searchCard.bloodGroupLabel">${t('searchCard.bloodGroupLabel')}</label>
-                      <div class="blood-group-selector" id="heroBloodSelector">
-                        <button type="button" class="blood-btn active" data-group="O+">O+</button>
-                        <button type="button" class="blood-btn" data-group="A+">A+</button>
-                        <button type="button" class="blood-btn" data-group="B+">B+</button>
-                        <button type="button" class="blood-btn" data-group="AB+">AB+</button>
-                        <button type="button" class="blood-btn" data-group="O-">O-</button>
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <label class="form-label" data-i18n="searchCard.locationLabel">${t('searchCard.locationLabel')}</label>
-                      <input type="text" class="form-input" id="heroLocationInput" value="Chattogram, 10 km radius" data-i18n-placeholder="searchCard.locationPlaceholder">
-                    </div>
-
-                    <a href="#/map" class="btn btn-primary btn-block" style="margin-top: var(--space-4);" data-i18n="searchCard.btnSearch">
-                      ${t('searchCard.btnSearch')}
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <!-- How It Works Section (Matching uploaded screenshot) -->
-              <div style="margin-top: var(--space-16);">
-                <h2 style="font-size: var(--font-size-2xl); font-weight: 800; margin-bottom: var(--space-6);" data-i18n="howItWorks.heading">
-                  ${t('howItWorks.heading')}
-                </h2>
-
-                <div class="how-it-works-grid">
-                  <div class="step-card">
-                    <div class="step-num">1</div>
-                    <h3 class="step-title" data-i18n="howItWorks.step1Title">${t('howItWorks.step1Title')}</h3>
-                    <p class="step-desc" data-i18n="howItWorks.step1Desc">${t('howItWorks.step1Desc')}</p>
-                  </div>
-
-                  <div class="step-card">
-                    <div class="step-num">2</div>
-                    <h3 class="step-title" data-i18n="howItWorks.step2Title">${t('howItWorks.step2Title')}</h3>
-                    <p class="step-desc" data-i18n="howItWorks.step2Desc">${t('howItWorks.step2Desc')}</p>
-                  </div>
-
-                  <div class="step-card">
-                    <div class="step-num">3</div>
-                    <h3 class="step-title" data-i18n="howItWorks.step3Title">${t('howItWorks.step3Title')}</h3>
-                    <p class="step-desc" data-i18n="howItWorks.step3Desc">${t('howItWorks.step3Desc')}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-        </main>
-      `;
-
-      // Attach blood button active selector on hero
-      document.querySelectorAll('#heroBloodSelector .blood-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-          document.querySelectorAll('#heroBloodSelector .blood-btn').forEach(b => b.classList.remove('active'));
-          e.currentTarget.classList.add('active');
-        });
-      });
-
-      translateDOM(appRoot);
+      if (this.homeView) {
+        this.homeView.destroy();
+      }
+      this.homeView = new HomeView('appRoot');
+      this.homeView.render();
     });
 
     // 2. REGISTRATION & VERIFICATION WIZARD
