@@ -1,0 +1,52 @@
+{
+  "parameters": {
+    "maintenance_mode": {
+      "defaultValue": {
+        "value": "false"
+      },
+      "description": "Global maintenance switch to display maintenance banner and pause new submissions."
+    },
+    "donation_gap_days_male": {
+      "defaultValue": {
+        "value": "90"
+      },
+      "description": "Enforced minimum days between whole blood donations for male donors."
+    },
+    "donation_gap_days_female": {
+      "defaultValue": {
+        "value": "120"
+      },
+      "description": "Enforced minimum days between whole blood donations for female donors."
+    },
+    "enable_sms_broadcasts": {
+      "defaultValue": {
+        "value": "true"
+      },
+      "description": "Flag to permit outbound SMS notifications to matching donors."
+    },
+    "max_active_requests_per_seeker": {
+      "defaultValue": {
+        "value": "2"
+      },
+      "description": "Anti-spam rate limit: maximum open requests an individual seeker can have."
+    },
+    "max_fundraisers_per_applicant": {
+      "defaultValue": {
+        "value": "2"
+      },
+      "description": "Maximum total active medical fundraisers allowed per verified applicant."
+    },
+    "four_eyes_payout_threshold_bdt": {
+      "defaultValue": {
+        "value": "50000"
+      },
+      "description": "Threshold in BDT above which two independent finance approvers are mandatory."
+    },
+    "platform_fee_percent": {
+      "defaultValue": {
+        "value": "0"
+      },
+      "description": "Platform fee on medical donations (0% default, zero-profit model with optional voluntary tip)."
+    }
+  }
+}

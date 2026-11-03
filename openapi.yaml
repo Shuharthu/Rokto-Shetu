@@ -1,0 +1,210 @@
+openapi: 3.0.3
+info:
+  title: RoktoSetu B2B Hospital & Blood Bank API
+  version: 1.0.0
+  description: |
+    Production REST API for authorized hospitals, blood banks, and diagnostic labs to integrate with RoktoSetu.
+    Enables programmatic blood inventory synchronization, emergency request dispatch, and camp management.
+    
+    **Security & Authentication:**
+    - All requests require a Bearer token: `Authorization: Bearer rs_live_...`
+    - API keys are hashed with SHA-256 and rate-limited per organization tier.
+    - SSRF protection is enforced on all outgoing webhooks.
+servers:
+  - url: https://api.roktosetu.org/v1
+    description: Production API Gateway
+  - url: http://127.0.0.1:5001/roktosetu-dev/asia-south1/api/v1
+    description: Local Emulator Suite
+
+paths:
+  /inventory:
+    get:
+      summary: List blood inventory units
+      description: Returns paginated list of blood units for the authenticated organization sorted by FEFO.
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - name: bloodGroup
+          in: query
+          schema:
+            type: string
+            enum: [A+, A-, B+, B-, AB+, AB-, O+, O-]
+        - name: status
+          in: query
+          schema:
+            type: string
+            enum: [available, reserved, quarantined, expired]
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 50
+      responses:
+        '200':
+          description: Successful inventory response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  total:
+                    type: integer
+                  units:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/InventoryUnit'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+
+    post:
+      summary: Register new blood unit
+      description: Logs newly collected and cleared blood unit into inventory.
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateInventoryUnitRequest'
+      responses:
+        '201':
+          description: Blood unit registered successfully
+        '400':
+          $ref: '#/components/responses/BadRequest'
+
+  /requests/emergency:
+    post:
+      summary: Dispatch emergency hospital blood request
+      description: Creates high-priority blood request and triggers expanding ring notifications to nearby donors.
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmergencyBloodRequest'
+      responses:
+        '202':
+          description: Request accepted and dispatched to donor ring
+        '429':
+          $ref: '#/components/responses/RateLimited'
+
+  /webhooks:
+    post:
+      summary: Register outgoing webhook subscription
+      description: Configures HMAC-signed event dispatch to hospital LIS/EHR system.
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [targetUrl, events]
+              properties:
+                targetUrl:
+                  type: string
+                  format: uri
+                  example: https://hospital.cmch.gov.bd/api/webhooks/roktosetu
+                events:
+                  type: array
+                  items:
+                    type: string
+                    enum: [donor.matched, unit.expired, camp.rsvp]
+      responses:
+        '201':
+          description: Webhook registered with secret
+
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: API_KEY
+
+  schemas:
+    InventoryUnit:
+      type: object
+      properties:
+        unitId:
+          type: string
+          example: BAG-2026-B812
+        bloodGroup:
+          type: string
+          example: B+
+        component:
+          type: string
+          example: Whole Blood
+        volumeMl:
+          type: integer
+          example: 450
+        collectionDate:
+          type: string
+          format: date-time
+        expiryDate:
+          type: string
+          format: date-time
+        status:
+          type: string
+          example: available
+        fefoPriorityHours:
+          type: integer
+          example: 28
+
+    CreateInventoryUnitRequest:
+      type: object
+      required: [bagId, bloodGroup, component, volumeMl, collectionDate, expiryDate]
+      properties:
+        bagId:
+          type: string
+        bloodGroup:
+          type: string
+          enum: [A+, A-, B+, B-, AB+, AB-, O+, O-]
+        component:
+          type: string
+          enum: [whole_blood, prbc, platelets, ffp, cryo]
+        volumeMl:
+          type: integer
+        collectionDate:
+          type: string
+          format: date-time
+        expiryDate:
+          type: string
+          format: date-time
+        branchId:
+          type: string
+
+    EmergencyBloodRequest:
+      type: object
+      required: [patientName, bloodGroup, unitsNeeded, hospitalName, requiredBy]
+      properties:
+        patientName:
+          type: string
+        bloodGroup:
+          type: string
+          enum: [A+, A-, B+, B-, AB+, AB-, O+, O-]
+        unitsNeeded:
+          type: integer
+          minimum: 1
+          maximum: 10
+        hospitalName:
+          type: string
+        wardNo:
+          type: string
+        urgency:
+          type: string
+          enum: [normal, urgent, critical_sos]
+        requiredBy:
+          type: string
+          format: date-time
+
+  responses:
+    Unauthorized:
+      description: Authentication failed. Invalid or revoked API key.
+    BadRequest:
+      description: Invalid payload or schema validation failure.
+    RateLimited:
+      description: Organization rate limit exceeded for plan tier.

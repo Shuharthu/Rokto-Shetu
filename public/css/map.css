@@ -1,0 +1,137 @@
+/**
+ * @file map.css
+ * @description Leaflet map styles, dark/light theme tiles, custom markers, and pulse rings.
+ */
+
+.map-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: #0E0E12;
+  overflow: hidden;
+}
+
+#leafletMap {
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+/* Dark theme tile filter for OpenStreetMap tiles */
+[data-theme="dark"] .leaflet-tile-pane {
+  filter: brightness(0.6) invert(1) contrast(3) hue-rotate(200deg) saturate(0.35);
+}
+
+/* Custom Marker Pins */
+.donor-marker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  color: #FFFFFF;
+  font-weight: var(--font-weight-extrabold);
+  font-size: var(--font-size-xs);
+  border: 2.5px solid #FFFFFF;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  transition: transform var(--transition-fast);
+  cursor: pointer;
+}
+
+.donor-marker:hover {
+  transform: scale(1.15);
+  z-index: 1000 !important;
+}
+
+.marker-b-plus { background-color: var(--color-crimson); }
+.marker-a-plus { background-color: #2A9D8F; }
+.marker-o-plus { background-color: #8B5CF6; }
+.marker-ab-plus { background-color: #3B82F6; }
+.marker-negatives { background-color: #E63946; }
+
+/* User Center Location Dot */
+.user-marker {
+  width: 16px;
+  height: 16px;
+  background-color: #3B82F6;
+  border: 3px solid #FFFFFF;
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.8);
+}
+
+/* Animated Radius Circle */
+.radius-pulse-circle {
+  border: 2px dashed rgba(217, 4, 41, 0.7);
+  background-color: rgba(217, 4, 41, 0.08);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: pulseRadius 3s infinite ease-in-out;
+}
+
+@keyframes pulseRadius {
+  0% { transform: scale(0.98); opacity: 0.8; }
+  50% { transform: scale(1.02); opacity: 1; }
+  100% { transform: scale(0.98); opacity: 0.8; }
+}
+
+/* Map Disclaimer Overlay (Matching uploaded screenshot) */
+.map-disclaimer {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(27, 27, 31, 0.88);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  padding: 10px 24px;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-xs);
+  text-align: center;
+  z-index: 20;
+  pointer-events: auto;
+  box-shadow: var(--shadow-md);
+  max-width: 90%;
+}
+
+/* Map Layout Split */
+.map-layout-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  min-height: calc(100vh - 72px);
+}
+
+@media (min-width: 992px) {
+  .map-layout-grid {
+    grid-template-columns: 380px 1fr;
+    height: calc(100vh - 72px);
+  }
+}
+
+@media (max-width: 991px) {
+  .map-layout-grid {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+  .map-container {
+    height: 400px;
+    min-height: 400px;
+    order: 1;
+  }
+  .map-sidebar {
+    order: 2;
+    overflow-y: visible;
+    border-right: none;
+    border-top: 1px solid var(--color-border);
+  }
+}
+
+.map-sidebar {
+  background-color: var(--color-bg-surface);
+  border-right: 1px solid var(--color-border);
+  padding: var(--space-6);
+  overflow-y: auto;
+  z-index: 15;
+}

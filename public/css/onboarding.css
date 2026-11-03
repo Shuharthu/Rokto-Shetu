@@ -1,0 +1,173 @@
+/**
+ * @file onboarding.css
+ * @description Multi-step registration and identity verification wizard styles.
+ */
+
+.wizard-container {
+  max-width: 760px;
+  margin: var(--space-8) auto;
+  padding: 0 var(--space-4);
+}
+
+.wizard-card {
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-card);
+}
+
+@media (max-width: 600px) {
+  .wizard-card {
+    padding: var(--space-5);
+  }
+}
+
+/* Multi-Step Progress Tracker */
+.wizard-progress {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: var(--space-8);
+}
+
+.wizard-progress::before {
+  content: '';
+  position: absolute;
+  top: 18px;
+  left: 30px;
+  right: 30px;
+  height: 3px;
+  background-color: var(--color-border);
+  z-index: 1;
+}
+
+.wizard-progress-bar {
+  position: absolute;
+  top: 18px;
+  left: 30px;
+  height: 3px;
+  background-color: var(--color-crimson);
+  z-index: 2;
+  transition: width var(--transition-normal);
+}
+
+.wizard-step-node {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.step-circle {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-bg-surface);
+  border: 2px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.wizard-step-node.active .step-circle {
+  background-color: var(--color-crimson);
+  border-color: var(--color-crimson);
+  color: var(--color-white);
+  box-shadow: 0 0 12px rgba(217, 4, 41, 0.4);
+}
+
+.wizard-step-node.completed .step-circle {
+  background-color: var(--color-success);
+  border-color: var(--color-success);
+  color: var(--color-white);
+}
+
+.step-label {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+
+.wizard-step-node.active .step-label {
+  color: var(--color-crimson);
+  font-weight: var(--font-weight-bold);
+}
+
+/* File Upload Zone */
+.upload-dropzone {
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  text-align: center;
+  cursor: pointer;
+  background-color: var(--color-bg-subtle);
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+.upload-dropzone:hover,
+.upload-dropzone.dragover {
+  border-color: var(--color-crimson);
+  background-color: var(--color-crimson-subtle);
+}
+
+.upload-icon {
+  width: 44px;
+  height: 44px;
+  margin: 0 auto var(--space-2);
+  color: var(--color-text-secondary);
+}
+
+.upload-preview {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3);
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  margin-top: var(--space-3);
+}
+
+/* Live Selfie Simulation Camera */
+.selfie-camera-box {
+  width: 100%;
+  max-width: 360px;
+  height: 270px;
+  margin: 0 auto var(--space-4);
+  background-color: #000000;
+  border-radius: var(--radius-lg);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--color-border);
+}
+
+.selfie-guide-oval {
+  width: 160px;
+  height: 210px;
+  border: 2px dashed rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.wizard-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-top: var(--space-8);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-border-subtle);
+}

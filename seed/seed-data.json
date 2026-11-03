@@ -1,0 +1,212 @@
+{
+  "organizations": [
+    {
+      "orgId": "org_dmch",
+      "name": "Dhaka Medical College Hospital (DMCH)",
+      "type": "hospital",
+      "licenseNumber": "DGHS-LIC-2026-0012",
+      "address": "Secretariat Rd, Dhaka 1000",
+      "division": "Dhaka",
+      "district": "Dhaka",
+      "coordinates": { "latitude": 23.7259, "longitude": 90.3976 },
+      "geohash": "wh0r3g",
+      "plan": "enterprise",
+      "status": "verified"
+    },
+    {
+      "orgId": "org_nicvd",
+      "name": "National Institute of Cardiovascular Diseases (NICVD)",
+      "type": "hospital",
+      "licenseNumber": "DGHS-LIC-2026-0089",
+      "address": "Sher-e-Bangla Nagar, Dhaka 1207",
+      "division": "Dhaka",
+      "district": "Dhaka",
+      "coordinates": { "latitude": 23.7718, "longitude": 90.3694 },
+      "geohash": "wh0r85",
+      "plan": "pro",
+      "status": "verified"
+    },
+    {
+      "orgId": "org_nicrh",
+      "name": "National Institute of Cancer Research & Hospital (NICRH)",
+      "type": "hospital",
+      "licenseNumber": "DGHS-LIC-2026-0145",
+      "address": "TB Gate, Mohakhali, Dhaka 1212",
+      "division": "Dhaka",
+      "district": "Dhaka",
+      "coordinates": { "latitude": 23.7782, "longitude": 90.4037 },
+      "geohash": "wh0r94",
+      "plan": "pro",
+      "status": "verified"
+    },
+    {
+      "orgId": "org_ctg_metro",
+      "name": "Chattogram Metro Blood Center & Hospital",
+      "type": "hospital",
+      "licenseNumber": "DGHS-LIC-2026-0312",
+      "address": "OR Nizam Rd, Panchlaish, Chattogram 4000",
+      "division": "Chattogram",
+      "district": "Chattogram",
+      "coordinates": { "latitude": 22.3619, "longitude": 91.8225 },
+      "geohash": "w7z9q5",
+      "plan": "starter",
+      "status": "verified"
+    },
+    {
+      "orgId": "org_red_crescent_sylhet",
+      "name": "Bangladesh Red Crescent Society - Sylhet Unit",
+      "type": "ngo",
+      "licenseNumber": "BDRCS-SYL-0041",
+      "address": "Chowhatta, Sylhet 3100",
+      "division": "Sylhet",
+      "district": "Sylhet",
+      "coordinates": { "latitude": 24.8988, "longitude": 91.8722 },
+      "geohash": "whh27u",
+      "plan": "starter",
+      "status": "verified"
+    }
+  ],
+  "donors": [
+    {
+      "uid": "usr_donor_001",
+      "displayName": "Rafi Shamim",
+      "bloodGroup": "B+",
+      "gender": "male",
+      "weightKg": 68,
+      "division": "Dhaka",
+      "district": "Dhaka",
+      "coordinates": { "latitude": 23.7505, "longitude": 90.3934 },
+      "geohash": "wh0r4v",
+      "totalDonations": 12,
+      "donorLevel": "Gold",
+      "points": 1450,
+      "isAvailable": true,
+      "verificationStatus": "verified"
+    },
+    {
+      "uid": "usr_donor_002",
+      "displayName": "Sadia Rahman",
+      "bloodGroup": "O-",
+      "gender": "female",
+      "weightKg": 54,
+      "division": "Dhaka",
+      "district": "Dhaka",
+      "coordinates": { "latitude": 23.7925, "longitude": 90.4078 },
+      "geohash": "wh0r9k",
+      "totalDonations": 16,
+      "donorLevel": "Platinum",
+      "points": 2100,
+      "isAvailable": true,
+      "verificationStatus": "verified"
+    },
+    {
+      "uid": "usr_donor_003",
+      "displayName": "Tanvir Hossain",
+      "bloodGroup": "A+",
+      "gender": "male",
+      "weightKg": 74,
+      "division": "Chattogram",
+      "district": "Chattogram",
+      "coordinates": { "latitude": 22.3569, "longitude": 91.8318 },
+      "geohash": "w7z9qn",
+      "totalDonations": 6,
+      "donorLevel": "Silver",
+      "points": 650,
+      "isAvailable": true,
+      "verificationStatus": "verified"
+    },
+    {
+      "uid": "usr_donor_004",
+      "displayName": "Nazmul Huda",
+      "bloodGroup": "O+",
+      "gender": "male",
+      "weightKg": 80,
+      "division": "Dhaka",
+      "district": "Gazipur",
+      "coordinates": { "latitude": 23.9999, "longitude": 90.4203 },
+      "geohash": "wh0rzj",
+      "totalDonations": 52,
+      "donorLevel": "Legend",
+      "points": 7400,
+      "isAvailable": true,
+      "verificationStatus": "verified"
+    },
+    {
+      "uid": "usr_donor_005",
+      "displayName": "Farhana Akter",
+      "bloodGroup": "AB+",
+      "gender": "female",
+      "weightKg": 52,
+      "division": "Sylhet",
+      "district": "Sylhet",
+      "coordinates": { "latitude": 24.8949, "longitude": 91.8687 },
+      "geohash": "whh27t",
+      "totalDonations": 4,
+      "donorLevel": "Bronze",
+      "points": 400,
+      "isAvailable": true,
+      "verificationStatus": "verified"
+    }
+  ],
+  "inventory": [
+    {
+      "unitId": "BAG_A101_B_POS",
+      "orgId": "org_dmch",
+      "branchId": "branch_main",
+      "bloodGroup": "B+",
+      "component": "whole_blood",
+      "collectionDate": "2026-10-25T08:00:00Z",
+      "expiryDate": "2026-12-05T08:00:00Z",
+      "status": "available",
+      "tested": true
+    },
+    {
+      "unitId": "BAG_A102_O_NEG",
+      "orgId": "org_dmch",
+      "branchId": "branch_main",
+      "bloodGroup": "O-",
+      "component": "whole_blood",
+      "collectionDate": "2026-10-01T08:00:00Z",
+      "expiryDate": "2026-11-04T12:00:00Z",
+      "status": "expiring_soon",
+      "tested": true
+    },
+    {
+      "unitId": "BAG_B201_PLT_A_POS",
+      "orgId": "org_nicvd",
+      "branchId": "branch_main",
+      "bloodGroup": "A+",
+      "component": "platelets",
+      "collectionDate": "2026-11-01T10:00:00Z",
+      "expiryDate": "2026-11-06T10:00:00Z",
+      "status": "available",
+      "tested": true
+    }
+  ],
+  "fundraisers": [
+    {
+      "campaignId": "fund_101",
+      "patientName": "Baby Ayan Hossain",
+      "patientAge": "4 yrs",
+      "diagnosis": "Congenital Heart Defect (Tetralogy of Fallot)",
+      "hospitalName": "National Institute of Cardiovascular Diseases (NICVD)",
+      "doctorName": "Prof. Dr. M. A. Karim",
+      "bmdcNumber": "A54219",
+      "targetAmountBDT": 350000,
+      "raisedAmountBDT": 245000,
+      "status": "active"
+    },
+    {
+      "campaignId": "fund_102",
+      "patientName": "Sumona Akter",
+      "patientAge": "19 yrs",
+      "diagnosis": "Acute Myeloid Leukemia (Chemotherapy & BMT)",
+      "hospitalName": "National Institute of Cancer Research & Hospital (NICRH)",
+      "doctorName": "Dr. Farhana Yasmin",
+      "bmdcNumber": "A38290",
+      "targetAmountBDT": 600000,
+      "raisedAmountBDT": 480000,
+      "status": "active"
+    }
+  ]
+}

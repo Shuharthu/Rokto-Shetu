@@ -1,0 +1,69 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    function isAuthenticated() {
+      return request.auth != null && request.auth.uid != null;
+    }
+
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    function isAdmin() {
+      return isAuthenticated() && (request.auth.token.admin == true || request.auth.token.super_admin == true);
+    }
+
+    function isValidFileSize() {
+      return request.resource.size <= 8 * 1024 * 1024; // 8 MB max
+    }
+
+    function isValidImageOrDocType() {
+      return request.resource.contentType.matches('image/jpeg')
+          || request.resource.contentType.matches('image/png')
+          || request.resource.contentType.matches('image/webp')
+          || request.resource.contentType.matches('application/pdf');
+    }
+
+    // Default deny
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+
+    // Public avatars
+    match /user_avatars/{userId}/{fileName} {
+      allow read: if true;
+      allow write: if isOwner(userId) 
+                   && request.resource.size <= 2 * 1024 * 1024
+                   && (request.resource.contentType.matches('image/jpeg')
+                       || request.resource.contentType.matches('image/png')
+                       || request.resource.contentType.matches('image/webp'));
+    }
+
+    // Sensitive identity documents (NID, Passport, Live Selfie)
+    // Upload-only by owner. Read is strictly FALSE for clients (signed URLs used by reviewers)
+    match /identity_docs/{userId}/{fileName} {
+      allow read: if false;
+      allow write: if isOwner(userId) && isValidFileSize() && isValidImageOrDocType();
+    }
+
+    // Medical & Treatment documents for fundraisers
+    // Read is strictly FALSE for public clients; accessed via transient signed URLs
+    match /medical_docs/{campaignId}/{fileName} {
+      allow read: if false;
+      allow write: if isAuthenticated() && isValidFileSize() && isValidImageOrDocType();
+    }
+
+    // Hospital invoices & proof-of-use receipts
+    match /payout_proofs/{campaignId}/{fileName} {
+      allow read: if false;
+      allow write: if isAuthenticated() && isValidFileSize() && isValidImageOrDocType();
+    }
+
+    // Static public assets
+    match /public_assets/{fileName} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+  }
+}
