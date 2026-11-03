@@ -78,6 +78,9 @@
     })();
   </script>
 
+  <!-- Preload LCP Video Poster for Instant Painting -->
+  <link rel="preload" as="image" href="/assets/video/hero-poster.jpg" fetchpriority="high">
+
   <!-- PWA Manifest & Favicon -->
   <link rel="manifest" href="/manifest.webmanifest">
   <link rel="icon" type="image/svg+xml" href="/assets/logo-icon.svg">
@@ -102,36 +105,59 @@
   <a href="#appRoot" class="sr-only">Skip to main content</a>
 
   <!-- Global Responsive Header / Navbar -->
-  <header class="navbar">
+  <header class="navbar" id="siteNavbar">
+    <div class="scroll-progress-bar" id="scrollProgressBar" aria-hidden="true"></div>
     <div class="container navbar-inner">
-      <!-- Brand Logo Lockup -->
+      <!-- Brand Logo Lockup with High-Contrast Tokens -->
       <a href="#/" class="brand-link" aria-label="RoktoSetu Home">
-        <img src="/assets/logo-horizontal.svg" alt="RoktoSetu Logo" class="brand-logo" id="mainBrandLogo">
+        <svg class="brand-icon-svg" width="38" height="38" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+          <path d="M50 8C50 8 18 48 18 68C18 85.673 32.327 100 50 100C67.673 100 82 85.673 82 68C82 48 50 8 50 8Z" fill="#D90429"/>
+          <path d="M25 68C25 54 36 43 50 43C64 43 75 54 75 68C75 75 71 81 65 85C69 80 71 74 71 68C71 56 61 47 50 47C39 47 29 56 29 68C29 74 31 80 35 85C29 81 25 75 25 68Z" fill="#8D0801"/>
+          <path d="M22 68H40L45 57L50 78L55 63L59 71L62 68H78" stroke="#2A9D8F" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M22 68H40L45 57L50 78L55 63L59 71L62 68H78" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="brand-text-block">
+          <span class="brand-wordmark"><span class="brand-wordmark-rokto">Rokto</span><span class="brand-wordmark-setu">Setu</span></span>
+          <span class="brand-tagline">রক্তসেতু • প্রতিটি ফোঁটা, জীবনের সেতু</span>
+        </div>
       </a>
 
-      <!-- Navigation Links -->
+      <!-- Desktop Navigation Links (Max 6 primary + More dropdown) -->
       <nav aria-label="Main Navigation">
         <ul class="nav-links">
           <li class="nav-item"><a href="#/map" data-i18n="nav.findDonors">Find Donors</a></li>
           <li class="nav-item"><a href="#/request" data-i18n="nav.requestBlood">Request Blood</a></li>
-          <li class="nav-item"><a href="#/achievements">Achievements</a></li>
-          <li class="nav-item"><a href="#/verify">Verify</a></li>
-          <li class="nav-item"><a href="#/fundraisers">Fundraisers</a></li>
-          <li class="nav-item"><a href="#/org">B2B Hospital</a></li>
-          <li class="nav-item"><a href="#/pricing">Pricing</a></li>
-          <li class="nav-item"><a href="#/register" data-i18n="nav.register">Register</a></li>
+          <li class="nav-item"><a href="#/fundraisers" data-i18n="nav.fundraisers">Fundraisers</a></li>
+          <li class="nav-item"><a href="#/achievements" data-i18n="nav.achievements">Achievements</a></li>
+          <li class="nav-item"><a href="#/verify" data-i18n="nav.verify">Verify</a></li>
+          <li class="nav-item"><a href="#/pricing" data-i18n="nav.pricing">Pricing</a></li>
+          <!-- More Dropdown -->
+          <li class="nav-item nav-dropdown-wrapper">
+            <button type="button" class="nav-dropdown-trigger" id="navMoreDropdownBtn" aria-expanded="false" aria-haspopup="true">
+              <span data-i18n="nav.more">More</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="nav-dropdown-menu" id="navMoreDropdownMenu" role="menu" aria-labelledby="navMoreDropdownBtn">
+              <a href="#/org" class="nav-dropdown-item" role="menuitem"><span class="item-icon">🏢</span> <span data-i18n="nav.b2bHospital">B2B Hospital</span></a>
+              <a href="#/register" class="nav-dropdown-item" role="menuitem"><span class="item-icon">🩸</span> <span data-i18n="nav.register">Register as Donor</span></a>
+              <a href="#/compatibility" class="nav-dropdown-item" role="menuitem"><span class="item-icon">🧪</span> <span data-i18n="nav.compatibility">Blood Matrix</span></a>
+              <a href="#/eligibility" class="nav-dropdown-item" role="menuitem"><span class="item-icon">✅</span> <span data-i18n="nav.eligibility">Eligibility Quiz</span></a>
+              <a href="#/faq" class="nav-dropdown-item" role="menuitem"><span class="item-icon">❓</span> <span data-i18n="nav.faq">FAQ</span></a>
+              <a href="#/admin" class="nav-dropdown-item" role="menuitem"><span class="item-icon">⚙️</span> <span data-i18n="nav.admin">Admin Console</span></a>
+            </div>
+          </li>
         </ul>
       </nav>
 
       <!-- Header Actions: Language, Theme, Auth -->
       <div class="navbar-actions">
-        <!-- Language Switcher Pill (Matching screenshot) -->
+        <!-- Language Switcher Pill -->
         <div class="lang-toggle" role="group" aria-label="Language selection">
           <button type="button" class="lang-btn active" data-lang="en">EN</button>
           <button type="button" class="lang-btn" data-lang="bn">বাংলা</button>
         </div>
 
-        <!-- Theme Switcher Button (Sun/Moon icon) -->
+        <!-- Theme Switcher Button -->
         <button type="button" class="btn-icon" id="themeToggleBtn" aria-label="Toggle theme">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="5"></circle>
@@ -146,12 +172,12 @@
           </svg>
         </button>
 
-        <!-- Auth Action Button (Matching screenshot) -->
+        <!-- Auth Action Button -->
         <button type="button" class="btn btn-primary btn-sm" id="btnLoginNav" data-i18n="nav.login">
           Log in
         </button>
 
-        <!-- Mobile Hamburger Toggle Button -->
+        <!-- Mobile Hamburger Toggle Button (Active below 1100px) -->
         <button type="button" class="btn-icon mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu" aria-expanded="false">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
             <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -200,49 +226,6 @@
 
   <!-- Auth Dialog Mount Container -->
   <div id="authModalContainer"></div>
-
-  <!-- Global Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:var(--space-8); margin-bottom:var(--space-8);">
-        <div>
-          <img src="/assets/logo-horizontal.svg" alt="RoktoSetu" style="height:36px; margin-bottom:12px;">
-          <p style="font-size:var(--font-size-xs); color:var(--color-text-secondary); line-height:1.6;">
-            A multi-tenant blood-donation network and medical treatment fundraiser. Every drop, a bridge to life.
-          </p>
-        </div>
-
-        <div>
-          <h4 style="font-size:var(--font-size-sm); font-weight:700; margin-bottom:12px;">Quick Links</h4>
-          <ul style="list-style:none; display:flex; flex-direction:column; gap:6px; font-size:var(--font-size-xs); color:var(--color-text-secondary);">
-            <li><a href="#/map">Find Verified Donors</a></li>
-            <li><a href="#/achievements">Donor Achievements & Digital ID</a></li>
-            <li><a href="#/verify">Public Certificate Verification</a></li>
-            <li><a href="#/compatibility">Blood Compatibility Matrix</a></li>
-            <li><a href="#/eligibility">Donor Eligibility Quiz</a></li>
-            <li><a href="#/fundraisers">Critical Patient Fundraisers</a></li>
-            <li><a href="#/faq">Frequently Asked Questions</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 style="font-size:var(--font-size-sm); font-weight:700; margin-bottom:12px;">Hard Ethics & Safety</h4>
-          <p style="font-size:var(--font-size-xs); color:var(--color-text-muted); line-height:1.6;">
-            Blood is never sold or paid for. The platform provides no medical advice; all transfusions must happen at certified, licensed healthcare facilities.
-          </p>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <div>© 2026 RoktoSetu (রক্তসেতু). All rights reserved.</div>
-        <div style="display:flex; gap:16px;">
-          <a href="#/privacy">Privacy Policy</a>
-          <a href="#/terms">Terms of Service</a>
-          <a href="#/disclaimer">Medical Disclaimer</a>
-        </div>
-      </div>
-    </div>
-  </footer>
 
   <!-- Application Entry Point ES Module -->
   <script type="module" src="/js/app.js"></script>

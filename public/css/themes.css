@@ -25,8 +25,18 @@
   --color-card-border: #E8EAEE;
   --color-card-bg: #FFFFFF;
 
-  --color-navbar-bg: rgba(255, 255, 255, 0.95);
+  --color-navbar-bg: rgba(255, 255, 255, 0.88);
   --color-navbar-border: #EAECEF;
+
+  --color-hero-scrim: linear-gradient(180deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.72) 35%, rgba(255, 255, 255, 0.78) 65%, rgba(255, 255, 255, 0.97) 100%);
+  --color-hero-radial: radial-gradient(ellipse 65% 50% at 75% 35%, rgba(217, 4, 41, 0.12), transparent 70%);
+  --color-glass-card-bg: rgba(255, 255, 255, 0.88);
+  --color-glass-card-border: rgba(217, 4, 41, 0.24);
+  --color-video-btn-bg: rgba(255, 255, 255, 0.88);
+  --color-video-btn-text: #1B1B1F;
+  --color-video-btn-border: rgba(0, 0, 0, 0.15);
+  --color-aurora-1: radial-gradient(circle at 10% 20%, rgba(217, 4, 41, 0.05), transparent 40%);
+  --color-aurora-2: radial-gradient(circle at 90% 80%, rgba(42, 157, 143, 0.06), transparent 40%);
 
   --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.05);
   --shadow-modal: 0 20px 40px rgba(0, 0, 0, 0.15);
@@ -53,8 +63,18 @@
   --color-card-border: #2C2C36;
   --color-card-bg: #1B1B1F;
 
-  --color-navbar-bg: rgba(27, 27, 31, 0.95);
+  --color-navbar-bg: rgba(18, 18, 21, 0.85);
   --color-navbar-border: #2B2B33;
+
+  --color-hero-scrim: linear-gradient(180deg, rgba(14, 14, 17, 0.95) 0%, rgba(14, 14, 17, 0.52) 35%, rgba(14, 14, 17, 0.58) 65%, rgba(14, 14, 17, 0.98) 100%);
+  --color-hero-radial: radial-gradient(ellipse 65% 50% at 75% 35%, rgba(217, 4, 41, 0.22), transparent 70%);
+  --color-glass-card-bg: rgba(27, 27, 31, 0.82);
+  --color-glass-card-border: rgba(217, 4, 41, 0.32);
+  --color-video-btn-bg: rgba(14, 14, 17, 0.82);
+  --color-video-btn-text: #FFFFFF;
+  --color-video-btn-border: rgba(255, 255, 255, 0.2);
+  --color-aurora-1: radial-gradient(circle at 15% 25%, rgba(217, 4, 41, 0.1), transparent 45%);
+  --color-aurora-2: radial-gradient(circle at 85% 75%, rgba(42, 157, 143, 0.1), transparent 45%);
 
   --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
   --shadow-modal: 0 20px 48px rgba(0, 0, 0, 0.6);
