@@ -1,0 +1,21 @@
+{
+  "name": "roktosetu",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "RoktoSetu (রক্তসেতু) - Multi-tenant SaaS blood-donation network and medical treatment fundraiser",
+  "private": true,
+  "scripts": {
+    "test": "node tests/run-all-tests.js",
+    "test:rules": "node tests/rules/run-rules-test.js",
+    "test:functions": "node tests/functions/run-functions-test.js"
+  },
+  "keywords": [
+    "blood-donation",
+    "saas",
+    "firebase",
+    "bangladesh",
+    "pwa"
+  ],
+  "author": "RoktoSetu Engineering Team",
+  "license": "UNLICENSED"
+}

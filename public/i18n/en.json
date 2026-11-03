@@ -1,0 +1,108 @@
+{
+  "nav": {
+    "findDonors": "Find Donors",
+    "requestBlood": "Request Blood",
+    "bloodBanks": "Blood Banks",
+    "camps": "Camps",
+    "leaderboard": "Leaderboard",
+    "fundraisers": "Fundraisers",
+    "login": "Log in",
+    "register": "Register",
+    "logout": "Log out"
+  },
+  "hero": {
+    "badge": "Verified donors, near you",
+    "titlePrefix": "Every drop, a bridge to ",
+    "titleHighlight": "life.",
+    "subtitle": "RoktoSetu connects patients with verified blood donors nearby, on a live map, in minutes.",
+    "btnFindDonor": "Find a donor",
+    "btnBecomeDonor": "Become a donor",
+    "btnEmergencySos": "Emergency SOS"
+  },
+  "searchCard": {
+    "title": "Search donors",
+    "bloodGroupLabel": "Blood group",
+    "locationLabel": "Location",
+    "locationPlaceholder": "e.g. Chattogram, 10 km radius",
+    "btnSearch": "Show donors on map"
+  },
+  "howItWorks": {
+    "heading": "How it works",
+    "step1Title": "Register and verify",
+    "step1Desc": "Add your NID or passport. Admins review it privately.",
+    "step2Title": "Match on the map",
+    "step2Desc": "Donors who are free right now appear near the patient.",
+    "step3Title": "Donate and level up",
+    "step3Desc": "Earn Bronze to Legend badges and rewards."
+  },
+  "wizard": {
+    "title": "Donor & User Registration",
+    "subtitle": "Complete your profile and identity verification to join the emergency network.",
+    "step1": "Account",
+    "step2": "Personal",
+    "step3": "Identity",
+    "step4": "Health",
+    "step5": "Consent",
+    "btnNext": "Continue",
+    "btnBack": "Back",
+    "btnSubmit": "Submit for Verification",
+    "autosaveNotice": "Draft saved automatically",
+    "account": {
+      "email": "Email address",
+      "phone": "Mobile phone (+8801XXXXXXXXX)",
+      "password": "Create a strong password (10+ characters)",
+      "confirmPassword": "Confirm password"
+    },
+    "personal": {
+      "name": "Full legal name",
+      "dob": "Date of birth",
+      "gender": "Gender",
+      "genderMale": "Male",
+      "genderFemale": "Female",
+      "genderOther": "Other",
+      "bloodGroup": "Blood group",
+      "weight": "Body weight (kg)",
+      "weightWarning": "Donors must weigh at least 50 kg to be eligible for whole blood donation.",
+      "division": "Division",
+      "district": "District",
+      "upazila": "Upazila",
+      "address": "Street address / area",
+      "emergencyName": "Emergency contact name",
+      "emergencyPhone": "Emergency contact phone",
+      "emergencyRelation": "Relationship"
+    },
+    "identity": {
+      "idType": "Identity document type",
+      "nid": "National ID (NID)",
+      "passport": "Passport",
+      "idNumber": "Document number",
+      "frontDrop": "Upload Front side of ID (JPG, PNG, PDF <= 8MB)",
+      "backDrop": "Upload Back side of ID",
+      "selfieTitle": "Live Selfie Verification",
+      "selfieDesc": "Take a clear live selfie centered in the oval. Our secure verifier checks this against your ID.",
+      "btnCapture": "Capture Photo",
+      "btnRetake": "Retake Photo"
+    },
+    "health": {
+      "chronic": "Do you have any chronic medical conditions (e.g. cardiac, diabetes, hepatitis)?",
+      "meds": "Are you currently taking any prescription medications?",
+      "surgery": "Have you undergone major surgery in the past 6 months?",
+      "lastDonation": "Date of your last whole blood donation (if any)",
+      "gapNotice": "A mandatory recovery gap of 90 days for men and 120 days for women is enforced between donations."
+    },
+    "consent": {
+      "terms": "I agree to the RoktoSetu Terms of Service and acknowledge that blood is never sold or paid for.",
+      "privacy": "I consent to the processing and Cloud KMS encryption of my identification data for verification purposes.",
+      "location": "I allow RoktoSetu to use my approximate (~500m fuzzed) location to match emergency blood requests."
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "retry": "Try again",
+    "save": "Save",
+    "cancel": "Cancel",
+    "available": "Available now",
+    "approxLocation": "Locations are approximate. Exact contact is shared after a donor accepts."
+  }
+}

@@ -1,0 +1,61 @@
+/**
+ * @file themes.css
+ * @description Light and Dark theme palette definitions with strict WCAG contrast compliance.
+ */
+
+/* Default Light Theme */
+:root,
+[data-theme="light"] {
+  --color-bg-app: #F8F9FA;
+  --color-bg-surface: #FFFFFF;
+  --color-bg-surface-elevated: #FFFFFF;
+  --color-bg-subtle: #F1F3F5;
+  --color-bg-input: #FFFFFF;
+
+  --color-text-primary: #1B1B1F;
+  --color-text-secondary: #595965;
+  --color-text-muted: #828292;
+  --color-text-inverse: #FFFFFF;
+  --color-text-teal: #1E6B62; /* High contrast teal on light bg */
+
+  --color-border: #E4E7EB;
+  --color-border-subtle: #EEF0F2;
+  --color-border-focus: #D90429;
+
+  --color-card-border: #E8EAEE;
+  --color-card-bg: #FFFFFF;
+
+  --color-navbar-bg: rgba(255, 255, 255, 0.95);
+  --color-navbar-border: #EAECEF;
+
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.05);
+  --shadow-modal: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Dark Theme (Matches user uploaded map UI) */
+[data-theme="dark"] {
+  --color-bg-app: #121215;
+  --color-bg-surface: #1B1B1F;
+  --color-bg-surface-elevated: #222228;
+  --color-bg-subtle: #18181D;
+  --color-bg-input: #151518;
+
+  --color-text-primary: #F8F9FA;
+  --color-text-secondary: #A0A0B0;
+  --color-text-muted: #6B6B7C;
+  --color-text-inverse: #1B1B1F;
+  --color-text-teal: #38B2A3;
+
+  --color-border: #2D2D36;
+  --color-border-subtle: #24242C;
+  --color-border-focus: #D90429;
+
+  --color-card-border: #2C2C36;
+  --color-card-bg: #1B1B1F;
+
+  --color-navbar-bg: rgba(27, 27, 31, 0.95);
+  --color-navbar-border: #2B2B33;
+
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
+  --shadow-modal: 0 20px 48px rgba(0, 0, 0, 0.6);
+}

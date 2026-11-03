@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" fill="none">
+  <!-- Blood Drop Silhouette -->
+  <g transform="translate(75, 20) scale(1.5)">
+    <path d="M50 8C50 8 18 48 18 68C18 85.673 32.327 100 50 100C67.673 100 82 85.673 82 68C82 48 50 8 50 8Z" fill="#D90429"/>
+    <!-- Embracing bridge hands -->
+    <path d="M25 68C25 54 36 43 50 43C64 43 75 54 75 68C75 75 71 81 65 85C69 80 71 74 71 68C71 56 61 47 50 47C39 47 29 56 29 68C29 74 31 80 35 85C29 81 25 75 25 68Z" fill="#8D0801"/>
+    <!-- Heartbeat ECG line -->
+    <path d="M22 68H40L45 57L50 78L55 63L59 71L62 68H78" stroke="#2A9D8F" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M22 68H40L45 57L50 78L55 63L59 71L62 68H78" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <!-- Stacked Bangla & English Typography -->
+  <text x="150" y="215" text-anchor="middle" font-family="'Hind Siliguri', 'Noto Sans Bengali', sans-serif" font-size="38" font-weight="800" fill="#D90429">
+    রক্তসেতু
+  </text>
+  <text x="150" y="245" text-anchor="middle" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="20" font-weight="700" fill="#1B1B1F">
+    ROKTOSETU
+  </text>
+  <text x="150" y="270" text-anchor="middle" font-family="'Hind Siliguri', sans-serif" font-size="13" font-weight="600" fill="#2A9D8F">
+    প্রতিটি ফোঁটা, জীবনের সেতু
+  </text>
+</svg>

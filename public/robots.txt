@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /verify-queue
+
+Sitemap: https://roktosetu.org/sitemap.xml

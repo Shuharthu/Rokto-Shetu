@@ -1,0 +1,47 @@
+{
+  "name": "RoktoSetu (রক্তসেতু)",
+  "short_name": "RoktoSetu",
+  "description": "Every drop, a bridge to life. Multi-tenant blood-donation network and medical treatment fundraiser.",
+  "start_url": "/#/",
+  "display": "standalone",
+  "background_color": "#121215",
+  "theme_color": "#D90429",
+  "orientation": "portrait-primary",
+  "categories": ["medical", "health", "humanitarian"],
+  "icons": [
+    {
+      "src": "/assets/logo-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/logo.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Emergency Blood Search",
+      "short_name": "Find Donors",
+      "description": "Search available donors near you on live map",
+      "url": "/#/map",
+      "icons": [{ "src": "/assets/logo-icon.svg", "sizes": "any" }]
+    },
+    {
+      "name": "Request Blood",
+      "short_name": "Request",
+      "description": "Broadcast an urgent blood request to nearby donors",
+      "url": "/#/request",
+      "icons": [{ "src": "/assets/logo-icon.svg", "sizes": "any" }]
+    },
+    {
+      "name": "Medical Fundraisers",
+      "short_name": "Fundraisers",
+      "description": "Browse and support critical patient treatment fundraisers",
+      "url": "/#/fundraisers",
+      "icons": [{ "src": "/assets/logo-icon.svg", "sizes": "any" }]
+    }
+  ]
+}

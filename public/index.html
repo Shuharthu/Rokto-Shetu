@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>RoktoSetu (রক্তসেতু) — Every drop, a bridge to life</title>
+  <meta name="description" content="RoktoSetu is a secure, multi-tenant blood-donation network and medical treatment fundraiser platform in Bangladesh.">
+  <meta name="theme-color" content="#D90429">
+
+  <!-- Open Graph & Social Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="RoktoSetu (রক্তসেতু)">
+  <meta property="og:title" content="RoktoSetu — Every drop, a bridge to life.">
+  <meta property="og:description" content="Find verified blood donors near you on a live map in minutes. 100% free community platform and transparent patient fundraisers.">
+  <meta property="og:url" content="https://roktosetu.org/">
+  <meta property="og:image" content="https://roktosetu.org/assets/logo.jpg">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="bn_BD">
+
+  <!-- Twitter Card Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="RoktoSetu (রক্তসেতু) Blood Network">
+  <meta name="twitter:description" content="Find verified blood donors near you on a live map in minutes across Bangladesh.">
+  <meta name="twitter:image" content="https://roktosetu.org/assets/logo.jpg">
+
+  <!-- Schema.org JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://roktosetu.org/#website",
+        "url": "https://roktosetu.org/",
+        "name": "RoktoSetu (রক্তসেতু)",
+        "description": "Multi-tenant SaaS blood-donation network and critical patient medical crowdfunding platform.",
+        "inLanguage": ["en", "bn"]
+      },
+      {
+        "@type": "NGO",
+        "@id": "https://roktosetu.org/#organization",
+        "name": "RoktoSetu Foundation",
+        "url": "https://roktosetu.org/",
+        "logo": "https://roktosetu.org/assets/logo-horizontal.svg",
+        "sameAs": ["https://facebook.com/roktosetu"]
+      },
+      {
+        "@type": "MedicalWebPage",
+        "@id": "https://roktosetu.org/#medical",
+        "url": "https://roktosetu.org/#/compatibility",
+        "name": "Blood Group Compatibility Matrix & Transfusion Science",
+        "aspect": "Overview"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Zero-Flash Theme Script (Runs synchronously before render) -->
+  <script>
+    (function() {
+      try {
+        var params = new URLSearchParams(window.location.search);
+        var urlTheme = params.get('theme');
+        var urlLang = params.get('lang');
+
+        var savedTheme = localStorage.getItem('roktosetu_theme');
+        var theme = urlTheme || savedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+        if (urlTheme) localStorage.setItem('roktosetu_theme', urlTheme);
+
+        var savedLang = localStorage.getItem('roktosetu_lang');
+        var lang = urlLang || savedLang;
+        if (lang) {
+          document.documentElement.setAttribute('lang', lang);
+          if (urlLang) localStorage.setItem('roktosetu_lang', urlLang);
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- PWA Manifest & Favicon -->
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" type="image/svg+xml" href="/assets/logo-icon.svg">
+  <link rel="apple-touch-icon" href="/assets/logo-icon.svg">
+
+  <!-- Google Fonts: Poppins (English) & Hind Siliguri (Bangla) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/themes.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/map.css">
+  <link rel="stylesheet" href="/css/onboarding.css">
+</head>
+<body>
+  <!-- Accessible Skip Link -->
+  <a href="#appRoot" class="sr-only">Skip to main content</a>
+
+  <!-- Global Responsive Header / Navbar -->
+  <header class="navbar">
+    <div class="container navbar-inner">
+      <!-- Brand Logo Lockup -->
+      <a href="#/" class="brand-link" aria-label="RoktoSetu Home">
+        <img src="/assets/logo-horizontal.svg" alt="RoktoSetu Logo" class="brand-logo" id="mainBrandLogo">
+      </a>
+
+      <!-- Navigation Links -->
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li class="nav-item"><a href="#/map" data-i18n="nav.findDonors">Find Donors</a></li>
+          <li class="nav-item"><a href="#/request" data-i18n="nav.requestBlood">Request Blood</a></li>
+          <li class="nav-item"><a href="#/achievements">Achievements</a></li>
+          <li class="nav-item"><a href="#/verify">Verify</a></li>
+          <li class="nav-item"><a href="#/fundraisers">Fundraisers</a></li>
+          <li class="nav-item"><a href="#/org">B2B Hospital</a></li>
+          <li class="nav-item"><a href="#/pricing">Pricing</a></li>
+          <li class="nav-item"><a href="#/register" data-i18n="nav.register">Register</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header Actions: Language, Theme, Auth -->
+      <div class="navbar-actions">
+        <!-- Language Switcher Pill (Matching screenshot) -->
+        <div class="lang-toggle" role="group" aria-label="Language selection">
+          <button type="button" class="lang-btn active" data-lang="en">EN</button>
+          <button type="button" class="lang-btn" data-lang="bn">বাংলা</button>
+        </div>
+
+        <!-- Theme Switcher Button (Sun/Moon icon) -->
+        <button type="button" class="btn-icon" id="themeToggleBtn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+
+        <!-- Auth Action Button (Matching screenshot) -->
+        <button type="button" class="btn btn-primary btn-sm" id="btnLoginNav" data-i18n="nav.login">
+          Log in
+        </button>
+
+        <!-- Mobile Hamburger Toggle Button -->
+        <button type="button" class="btn-icon mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-nav-drawer" id="mobileNavDrawer" aria-hidden="true">
+    <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
+    <div class="mobile-nav-panel">
+      <div class="mobile-nav-header">
+        <a href="#/" class="brand-link" aria-label="RoktoSetu Home">
+          <img src="/assets/logo-horizontal.svg" alt="RoktoSetu Logo" style="height:36px;">
+        </a>
+        <button type="button" class="btn-icon" id="btnCloseMobileNav" aria-label="Close menu">✕</button>
+      </div>
+
+      <ul class="mobile-nav-links">
+        <li><a href="#/map" class="mobile-nav-link">🗺️ <span data-i18n="nav.findDonors">Find Donors</span></a></li>
+        <li><a href="#/request" class="mobile-nav-link">🩸 <span data-i18n="nav.requestBlood">Request Blood</span></a></li>
+        <li><a href="#/achievements" class="mobile-nav-link">🏆 <span>Achievements & ID Card</span></a></li>
+        <li><a href="#/verify" class="mobile-nav-link">🔍 <span>Verify Certificate</span></a></li>
+        <li><a href="#/fundraisers" class="mobile-nav-link">🏥 <span>Patient Fundraisers</span></a></li>
+        <li><a href="#/org" class="mobile-nav-link">🏢 <span>B2B Hospital</span></a></li>
+        <li><a href="#/pricing" class="mobile-nav-link">💳 <span>Pricing & Plans</span></a></li>
+        <li><a href="#/compatibility" class="mobile-nav-link">🧪 <span>Blood Matrix</span></a></li>
+        <li><a href="#/eligibility" class="mobile-nav-link">✅ <span>Eligibility Quiz</span></a></li>
+        <li><a href="#/faq" class="mobile-nav-link">❓ <span>FAQ</span></a></li>
+        <li><a href="#/admin" class="mobile-nav-link">⚙️ <span>Admin Console</span></a></li>
+      </ul>
+
+      <div style="display:flex; flex-direction:column; gap:8px; margin-bottom:16px;">
+        <a href="#/register" class="btn btn-primary btn-block mobile-nav-link">Register as Donor</a>
+        <button type="button" class="btn btn-outline btn-block" id="btnLoginMobile">Log In</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SPA Mount Point -->
+  <div id="appRoot"></div>
+
+  <!-- Auth Dialog Mount Container -->
+  <div id="authModalContainer"></div>
+
+  <!-- Global Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:var(--space-8); margin-bottom:var(--space-8);">
+        <div>
+          <img src="/assets/logo-horizontal.svg" alt="RoktoSetu" style="height:36px; margin-bottom:12px;">
+          <p style="font-size:var(--font-size-xs); color:var(--color-text-secondary); line-height:1.6;">
+            A multi-tenant blood-donation network and medical treatment fundraiser. Every drop, a bridge to life.
+          </p>
+        </div>
+
+        <div>
+          <h4 style="font-size:var(--font-size-sm); font-weight:700; margin-bottom:12px;">Quick Links</h4>
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:6px; font-size:var(--font-size-xs); color:var(--color-text-secondary);">
+            <li><a href="#/map">Find Verified Donors</a></li>
+            <li><a href="#/achievements">Donor Achievements & Digital ID</a></li>
+            <li><a href="#/verify">Public Certificate Verification</a></li>
+            <li><a href="#/compatibility">Blood Compatibility Matrix</a></li>
+            <li><a href="#/eligibility">Donor Eligibility Quiz</a></li>
+            <li><a href="#/fundraisers">Critical Patient Fundraisers</a></li>
+            <li><a href="#/faq">Frequently Asked Questions</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 style="font-size:var(--font-size-sm); font-weight:700; margin-bottom:12px;">Hard Ethics & Safety</h4>
+          <p style="font-size:var(--font-size-xs); color:var(--color-text-muted); line-height:1.6;">
+            Blood is never sold or paid for. The platform provides no medical advice; all transfusions must happen at certified, licensed healthcare facilities.
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 RoktoSetu (রক্তসেতু). All rights reserved.</div>
+        <div style="display:flex; gap:16px;">
+          <a href="#/privacy">Privacy Policy</a>
+          <a href="#/terms">Terms of Service</a>
+          <a href="#/disclaimer">Medical Disclaimer</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Application Entry Point ES Module -->
+  <script type="module" src="/js/app.js"></script>
+</body>
+</html>

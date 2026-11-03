@@ -1,0 +1,32 @@
+name: RoktoSetu CD Staging & Production Deployment
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy_staging:
+    name: Deploy to Firebase Staging
+    runs-on: ubuntu-latest
+    environment: staging
+
+    steps:
+      - name: Checkout Codebase
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js Runtime (v20)
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Functions Dependencies
+        working-directory: ./functions
+        run: npm ci
+
+      - name: Deploy to Firebase Hosting & Rules
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_ROKTOSETU_STAGING }}'
+          projectId: roktosetu-staging
+          channelId: live
