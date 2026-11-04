@@ -10,6 +10,9 @@ function checkImports(filePath, visited = new Set()) {
   let match;
   while ((match = importRegex.exec(content)) !== null) {
     const importPath = match[1];
+    if (importPath.startsWith('http://') || importPath.startsWith('https://') || importPath.startsWith('//')) {
+      continue;
+    }
     const resolved = path.resolve(path.dirname(filePath), importPath);
     if (!fs.existsSync(resolved)) {
       console.error(`[ERROR] Missing import: "${importPath}" in ${filePath}`);

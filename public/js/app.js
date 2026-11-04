@@ -9,6 +9,7 @@ import { Router } from './core/router.js';
 import { modal } from './core/modal.js';
 import { toast } from './core/toast.js';
 import { store } from './core/store.js';
+import { subscribeAuthState, signOutFromFirebase } from './core/firebase.js';
 import { AuthView } from './modules/auth/auth-view.js';
 import { OnboardingWizard } from './modules/onboarding/wizard.js';
 import { IdentityVerifierQueue } from './modules/admin/verify-queue.js';
@@ -70,6 +71,17 @@ class RoktoSetuApp {
     this.setupServiceWorker();
 
     store.subscribe((state) => this.renderUserNav(state));
+
+    // Subscribe to Firebase Auth state
+    try {
+      await subscribeAuthState((user) => {
+        if (user) {
+          store.setUser(user);
+        }
+      });
+    } catch (e) {
+      console.warn('[RoktoSetu] Auth listener fallback:', e);
+    }
   }
 
   setupNavbar() {
@@ -90,8 +102,9 @@ class RoktoSetuApp {
     // Login button
     const btnLogin = document.getElementById('btnLoginNav');
     if (btnLogin) {
-      btnLogin.addEventListener('click', () => {
+      btnLogin.addEventListener('click', async () => {
         if (store.state.isAuthenticated) {
+          await signOutFromFirebase();
           store.setUser(null);
           toast.info('Logged out successfully.');
         } else {
@@ -139,9 +152,10 @@ class RoktoSetuApp {
     });
 
     // Mobile Login Button in Drawer
-    document.getElementById('btnLoginMobile')?.addEventListener('click', () => {
+    document.getElementById('btnLoginMobile')?.addEventListener('click', async () => {
       closeDrawer();
       if (store.state.isAuthenticated) {
+        await signOutFromFirebase();
         store.setUser(null);
         toast.info('Logged out successfully.');
       } else {
