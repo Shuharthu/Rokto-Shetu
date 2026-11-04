@@ -18,6 +18,7 @@ import { runFundraiserTests } from './functions/fundraiser.test.js';
 import { runAdminTests } from './functions/admin.test.js';
 import { runAntiCommercialTests } from './functions/anti_commercial.test.js';
 import { runSection17Tests } from './functions/section17.test.js';
+import { runSecureAuthTests } from './test-secure-auth.js';
 
 async function main() {
   console.log('\n=====================================================================');
@@ -88,6 +89,9 @@ async function main() {
 
   const section17Results = await runSection17Tests();
   printGroup('Section 17: Donor Certification, Digital ID Cards & Social Sharing', section17Results);
+
+  const secureAuthResults = await runSecureAuthTests();
+  printGroup('Firebase Auth, Cloud Firestore Profile & Role Security', secureAuthResults);
 
   console.log('\n=====================================================================');
   console.log(`SUMMARY: Total: ${totalTests} | Passed: ${passedTests} | Failed: ${failedTests}`);
