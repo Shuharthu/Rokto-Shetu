@@ -7,9 +7,9 @@
 // Config can be provided via window.__FIREBASE_CONFIG__ at runtime or via environment defaults
 export const FIREBASE_CONFIG = window.__FIREBASE_CONFIG__ || {
   apiKey: "AIzaSyDummyDevKeyForRoktoSetuBangladesh2026",
-  authDomain: "roktosetu-dev.firebaseapp.com",
-  projectId: "roktosetu-dev",
-  storageBucket: "roktosetu-dev.appspot.com",
+  authDomain: "roktoshetu.firebaseapp.com",
+  projectId: "roktoshetu",
+  storageBucket: "roktoshetu.appspot.com",
   messagingSenderId: "123456789012",
   appId: "1:123456789012:web:abcdef1234567890"
 };
